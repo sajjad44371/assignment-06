@@ -94,7 +94,7 @@
         <div>
           <img src="./assets/hero-leaf1.png" alt="" />
         </div>
-        <div>
+        <div class="z-10 py-5">
           <h1 class="text-3xl md:text-5xl font-bold">
             Plant a Tree, Grow a Future
           </h1>
@@ -173,8 +173,8 @@
                     <h6 class="text-sm font-semibold">Mango tree</h6>
                     <p class="text-sm font-semibold text-[#8c8c8c]">
                       <i class="fa-solid fa-bangladeshi-taka-sign"></i
-                      ><span>500</span><i class="fa-solid fa-xmark"></i
-                      ><span>1</span>
+                      ><span class="text-sm">500</span
+                      ><i class="fa-solid fa-xmark"></i><span>1</span>
                     </p>
                   </div>
                   <div>
@@ -222,9 +222,9 @@
     <section class="impact py-[100px] bg-[#CFF0DC]">
       <h2 class="text-3xl font-semibold text-center mb-5">Our Impact</h2>
       <div
-        class="impact-container max-w-[1650px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-7"
+        class="impact-container max-w-[1650px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-7 px-2.5 md:px-0"
       >
-        <!-- aingle item  -->
+        <!-- single item  -->
         <div class="bg-white rounded-lg">
           <div class="p-10 text-center">
             <h3 class="text-3xl font-semibold text-[#15803d] mb-2.5">500K+</h3>
@@ -232,7 +232,7 @@
           </div>
         </div>
 
-        <!-- aingle item  -->
+        <!-- single item  -->
         <div class="bg-white rounded-lg">
           <div class="p-10 text-center">
             <h3 class="text-3xl font-semibold text-[#15803d] mb-2.5">500K+</h3>
@@ -240,7 +240,7 @@
           </div>
         </div>
 
-        <!-- aingle item  -->
+        <!-- single item  -->
         <div class="bg-white rounded-lg">
           <div class="p-10 text-center">
             <h3 class="text-3xl font-semibold text-[#15803d] mb-2.5">500K+</h3>
@@ -251,8 +251,56 @@
     </section>
     <!-- impact section end  -->
 
+    <!-- donate section start  -->
+    <section class="donate bg-[#166534]">
+      <div class="py-[100px] text-center">
+        <h2 class="text-3xl font-semibold text-center mb-5 text-white">
+          Plant a Tree Today
+        </h2>
+        <div
+          class="flex justify-center items-center bg-[#15803D] rounded-lg w-full sm:w-8/12 md:w-8/12 xl:w-4/12 mx-auto"
+        >
+          <div class="p-8 w-full">
+            <input
+              type="text"
+              placeholder="Your Name"
+              class="input rounded-lg block w-full mb-3 border border-gray-300 bg-white py-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent"
+            />
+            <input
+              type="email"
+              placeholder="Your Email Address"
+              class="input rounded-lg block w-full mb-3 border border-gray-300 bg-white py-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent"
+            />
+            <select
+              name="trees"
+              id="trees"
+              class="block rounded-lg border border-gray-300 bg-white py-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent w-full mb-3"
+              aria-label="Plant number of trees"
+            >
+              <option value="" disabled selected hidden>
+                Plant number of trees
+              </option>
+              <option value="01">01</option>
+              <option value="02">02</option>
+              <option value="other">Other (specify)</option>
+            </select>
+            <a class="btn rounded-3xl bg-[#facc15] text-[#15803d] w-full"
+              >Plant a Tree</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- donate section end  -->
+
     <!-- footer start -->
-    <footer></footer>
+    <footer class="bg-[#14532D]">
+      <p class="text-sm md:text-[16px] text-white text-center py-6">
+        &copy; <span id="year"></span> Green Earth. All rights reserved.
+      </p>
+    </footer>
     <!-- footer end -->
+
+    <script src="./js/script.js"></script>
   </body>
 </html>
