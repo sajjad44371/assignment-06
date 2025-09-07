@@ -1,5 +1,7 @@
 const categoriesContainer = document.getElementById("categories-container");
 const treeContainer = document.getElementById("tree-container");
+const cartContainer = document.getElementById("cart-container");
+
 // load tree categories
 const loadTreeCategories = () => {
   fetch("https://openapi.programming-hero.com/api/categories")
@@ -23,6 +25,7 @@ loadTreeCategories();
 
 // load trees by category
 const loadTreesByCategory = (id, btn) => {
+  manageSpinner(true);
   fetch(`https://openapi.programming-hero.com/api/category/${id}`)
     .then((res) => res.json())
     .then((data) => displayTreesByCategory(data.plants))
@@ -55,7 +58,7 @@ const displayTreesByCategory = (categoryPlants) => {
                     ><span>${cat.price}</span>
                   </h6>
                 </div>
-                <button
+                <button onclick="addToCart('${cat.name}', ${cat.price})" 
                   class="btn bg-[#15803d] text-white mt-3 block rounded-3xl w-full"
                 >
                   Add to Cart
@@ -64,22 +67,8 @@ const displayTreesByCategory = (categoryPlants) => {
             </div>
     `;
   });
+  manageSpinner(false);
 };
-
-// <!-- Open the modal using ID.showModal() method -->
-// <button class="btn" onclick="my_modal.showModal()">open modal</button>
-// <dialog id="my_modal" class="modal modal-bottom sm:modal-middle">
-//   <div class="modal-box">
-//     <h3 class="text-lg font-bold">Hello!</h3>
-//     <p class="py-4">Press ESC key or click the button below to close</p>
-//     <div class="modal-action">
-//       <form method="dialog">
-//         <!-- if there is a button in form, it will close the modal -->
-//         <button class="btn">Close</button>
-//       </form>
-//     </div>
-//   </div>
-// </dialog>
 
 // load tree description
 const loadTreeDescription = (id) => {
@@ -93,11 +82,11 @@ const showTreeDescription = (description) => {
   const detailsContainer = document.getElementById("details-container");
   detailsContainer.innerHTML = `
     <div>
-        <h3>${description.name}</h3>
-        <img src="" alt="" />
-        <h3><span>Category:</span> ${description.category}</h3>
-        <h4><span>Price:</span> ${description.price}</h4>
-        <p><span>Description:</span> ${description.description}</p>
+        <h3 class="text-xl md:text-2xl font-bold mb-2.5">${description.name}</h3>
+        <img src="${description.image}" alt="" class />
+        <h3 class="text-sm md:text-lg text-gray-600"><span class="font-bold text-black">Category:</span> ${description.category}</h3>
+        <h4 class="text-sm md:text-lg text-gray-600 my-1.5"><span class="font-bold text-black">Price:</span> ${description.price}</h4>
+        <p class="text-sm md:text-lg text-gray-600"><span class="font-bold text-black">Description:</span> ${description.description}</p>
     </div>
   `;
   document.getElementById("my_modal").showModal();
@@ -117,7 +106,7 @@ const displayAllPlants = (allPlants) => {
     treeContainer.innerHTML += `
             <div class="tree-card rounded-lg bg-white">
               <div class="tree-card-content p-4">
-                <img src="" alt="" class="rounded-lg" />
+                <img src="${plant.image}" alt="" class="rounded-lg" />
                 <button onclick="loadTreeDescription(${plant.id})" class="text-[14px] font-semibold my-3 cursor-pointer">${plant.name}</button>
                 <p class="text-[12px] text-gray-400 mb-2">
                  ${plant.description}
@@ -133,7 +122,7 @@ const displayAllPlants = (allPlants) => {
                     ><span>${plant.price}</span>
                   </h6>
                 </div>
-                <button
+                <button onclick="addToCart('${plant.name}',${plant.price})" 
                   class="btn bg-[#15803d] text-white mt-3 block rounded-3xl w-full"
                 >
                   Add to Cart
@@ -145,6 +134,84 @@ const displayAllPlants = (allPlants) => {
 };
 
 loadAllPlants();
+
+// add to cart
+const addToCart = (name, price) => {
+  console.log(name, price);
+  cartContainer.innerHTML += `
+                  <div
+                    class="single-cart flex justify-between items-center mb-3 bg-[#f0fdf4] rounded-lg p-2"
+                  >
+                    <div class="">
+                      <h6 class="text-sm font-semibold">${name}</h6>
+                      <p class="text-sm font-semibold text-[#8c8c8c]">
+                        <i class="fa-solid fa-bangladeshi-taka-sign"></i
+                        ><span class="text-sm item-price">${price}</span
+                        ><i class="fa-solid fa-xmark"></i><span>1</span>
+                      </p>
+                    </div>
+                    <div>
+                      <i
+                        class="fa-solid fa-xmark text-[#8c8c8c] cursor-pointer remove-item"
+                      ></i>
+                    </div>
+                  </div>
+    `;
+  alert(`${name} has been added to the cart 🚀`);
+  totalAmount();
+};
+
+// remove item
+cartContainer.addEventListener("click", function (event) {
+  if (event.target.classList.contains("remove-item")) {
+    event.target.closest(".single-cart").remove();
+    totalAmount();
+  }
+});
+
+// add amount
+const totalAmount = () => {
+  let total = 0;
+  const prices = cartContainer.querySelectorAll(".single-cart .item-price");
+
+  prices.forEach((priceE1) => {
+    const price = parseInt(priceE1.textContent) || 0;
+    total += price;
+  });
+
+  document.getElementById("total-amount").innerText = total;
+};
+
+// spinner
+const manageSpinner = (status) => {
+  if (status) {
+    document.getElementById("spinner").classList.remove("invisible");
+    document.getElementById("tree-container").classList.add("invisible");
+  } else {
+    document.getElementById("tree-container").classList.remove("invisible");
+    document.getElementById("spinner").classList.add("invisible");
+  }
+};
+
+//newsletter
+document.getElementById("btn-nwsltr").addEventListener("click", function () {
+  alert("Thanks For Donating 🩷...");
+});
+
+//go to top
+const goTopBtn = document.getElementById("goTopBtn");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > window.innerHeight / 1) {
+    goTopBtn.classList.remove("hidden");
+  } else {
+    goTopBtn.classList.add("hidden");
+  }
+});
+
+goTopBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
 
 // footer year
 document.getElementById("year").textContent = new Date().getFullYear();
