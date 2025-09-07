@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Green Earth</title>
 
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./assets/logo.png" type="image/png" />
     <!-- tailwind and daisyUI cdn -->
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@5"
@@ -74,9 +76,16 @@
           </div>
 
           <!-- logo -->
-          <a href="./index.html" class="text-xl cursor-pointer"
-            ><span class="font-bold">Green Earth</span></a
-          >
+          <a
+            href="./index.html"
+            class="text-xl cursor-pointer flex justify-start items-center"
+            ><img
+              src="./assets/logo.png"
+              alt=""
+              class="w-[20%] sm:w-[15%] md:w-[10%] lg:w-[8%]"
+            />
+            <p class="font-bold">Green Earth</p>
+          </a>
         </div>
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal px-1">
@@ -126,7 +135,7 @@
       <!-- trees section start  -->
       <section
         id="trees"
-        class="trees max-w-[1650px] mx-auto py-[100px] px-2.5 md:px-0"
+        class="trees max-w-[1650px] mx-auto py-[100px] px-2.5 xl:px-0"
       >
         <h2 class="text-3xl font-semibold text-center mb-5">
           Choose Your Trees
@@ -140,10 +149,12 @@
           <span class="loading loading-ball loading-xl"></span>
         </div>
         <div
-          class="tree-section-container flex flex-col lg:flex-row justify-between items-start gap-7 py-10"
+          class="tree-section-container flex flex-col xl:flex-row justify-between items-start gap-7 py-10"
         >
           <div class="categories flex-1 xl:flex-2/12 w-full">
-            <h3 class="text-lg font-semibold">Categories</h3>
+            <h3 class="text-lg font-semibold text-center xl:text-left">
+              Categories
+            </h3>
             <div
               id="categories-container"
               class="div mt-2 text-center lg:text-left"
@@ -151,13 +162,15 @@
           </div>
           <div
             id="tree-container"
-            class="tree-container flex-1 xl:flex-8/12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-7"
+            class="tree-container flex-1 xl:flex-8/12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7"
           >
             <!-- single card  -->
           </div>
           <div class="cart flex-1 xl:flex-2/12 rounded-lg bg-white w-full">
             <div class="cart-content p-4">
-              <h4 class="text-lg font-semibold">Your Cart</h4>
+              <h4 class="text-lg font-semibold">
+                Your Cart <i class="fa-solid fa-cart-shopping"></i>
+              </h4>
               <div
                 id="cart-container"
                 class="cart-item-container mt-3 border-b border-gray-300"
@@ -230,7 +243,7 @@
     <section class="impact py-[100px] bg-[#CFF0DC]">
       <h2 class="text-3xl font-semibold text-center mb-5">Our Impact</h2>
       <div
-        class="impact-container max-w-[1650px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-7 px-2.5 md:px-0"
+        class="impact-container max-w-[1650px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-7 px-2.5 xl:px-0"
       >
         <!-- single item  -->
         <div class="bg-white rounded-lg">

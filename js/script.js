@@ -15,7 +15,7 @@ const displayTreeCategories = (categories) => {
   categories.forEach((element) => {
     categoriesContainer.innerHTML += `
         <div>
-            <button onclick="loadTreesByCategory('${element.id}', this)" id="btn-category" class="font-medium p-1.5 cursor-pointer hover:bg-[#166534] hover:text-white duration-200 w-full text-left">${element.category_name}</button>
+            <button onclick="loadTreesByCategory('${element.id}', this)" id="btn-category" class="font-medium p-1.5 cursor-pointer hover:bg-[#166534] hover:text-white duration-200 w-full text-center xl:text-left">${element.category_name}</button>
         </div>
     `;
   });
