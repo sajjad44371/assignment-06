@@ -40,7 +40,7 @@ const displayTreesByCategory = (categoryPlants) => {
   treeContainer.innerHTML = "";
   categoryPlants.forEach((cat) => {
     treeContainer.innerHTML += `
-            <div class="tree-card rounded-lg bg-white">
+            <div class="tree-card rounded-lg bg-white shadow-md transform hover:scale-105 hover:shadow-xl transition duration-300">
               <div class="tree-card-content p-4">
                 <img src="${cat.image}" alt="" class="rounded-lg" />
                 <button onclick="loadTreeDescription(${cat.id})" class="text-[14px] font-semibold my-3 cursor-pointer">${cat.name}</button>
@@ -59,7 +59,7 @@ const displayTreesByCategory = (categoryPlants) => {
                   </h6>
                 </div>
                 <button onclick="addToCart('${cat.name}', ${cat.price})" 
-                  class="btn bg-[#15803d] text-white mt-3 block rounded-3xl w-full"
+                  class="btn bg-[#15803d] text-white transition-all duration-300 hover:bg-gradient-to-r hover:from-[#facc15] hover:to-[#15803d] mt-3 block rounded-3xl w-full"
                 >
                   Add to Cart
                 </button>
@@ -104,7 +104,7 @@ const displayAllPlants = (allPlants) => {
   treeContainer.innerHTML = "";
   allPlants.forEach((plant) => {
     treeContainer.innerHTML += `
-            <div class="tree-card rounded-lg bg-white">
+            <div class="tree-card rounded-lg bg-white shadow-md transform hover:scale-105 hover:shadow-xl transition duration-300">
               <div class="tree-card-content p-4">
                 <img src="${plant.image}" alt="" class="rounded-lg" />
                 <button onclick="loadTreeDescription(${plant.id})" class="text-[14px] font-semibold my-3 cursor-pointer">${plant.name}</button>
@@ -123,7 +123,7 @@ const displayAllPlants = (allPlants) => {
                   </h6>
                 </div>
                 <button onclick="addToCart('${plant.name}',${plant.price})" 
-                  class="btn bg-[#15803d] text-white mt-3 block rounded-3xl w-full"
+                  class="btn bg-[#15803d] text-white transition-all duration-300 hover:bg-gradient-to-r hover:from-[#facc15] hover:to-[#15803d] mt-3 block rounded-3xl w-full"
                 >
                   Add to Cart
                 </button>
