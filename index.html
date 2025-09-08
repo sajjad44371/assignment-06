@@ -166,12 +166,21 @@
           class="tree-section-container flex flex-col xl:flex-row justify-between items-start gap-7 py-10"
         >
           <div class="categories flex-1 xl:flex-2/12 w-full">
-            <h3 class="text-lg font-semibold text-center xl:text-left">
+            <h3 class="text-lg font-semibold text-center xl:text-left mb-3">
               Categories
             </h3>
+            <div>
+              <button
+                onclick="loadAllPlants()"
+                id="btn-category"
+                class="btn-all-tree font-medium p-2 cursor-pointer hover:bg-[#166534] hover:text-white duration-200 w-full rounded-lg text-center xl:text-left"
+              >
+                All Trees
+              </button>
+            </div>
             <div
               id="categories-container"
-              class="div mt-2 text-center lg:text-left"
+              class="div text-center lg:text-left"
             ></div>
           </div>
           <div
@@ -260,7 +269,9 @@
         class="impact-container max-w-[1650px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-7 px-2.5 xl:px-0"
       >
         <!-- single item  -->
-        <div class="bg-white rounded-lg">
+        <div
+          class="bg-white rounded-lg shadow-md transform hover:scale-105 hover:shadow-xl transition duration-300"
+        >
           <div class="p-10 text-center">
             <h3 class="text-3xl font-semibold text-[#15803d] mb-2.5">500K+</h3>
             <p class="text-[#1f2937]">Trees Planted</p>
@@ -268,7 +279,9 @@
         </div>
 
         <!-- single item  -->
-        <div class="bg-white rounded-lg">
+        <div
+          class="bg-white rounded-lg shadow-md transform hover:scale-105 hover:shadow-xl transition duration-300"
+        >
           <div class="p-10 text-center">
             <h3 class="text-3xl font-semibold text-[#15803d] mb-2.5">500K+</h3>
             <p class="text-[#1f2937]">Trees Planted</p>
@@ -276,7 +289,9 @@
         </div>
 
         <!-- single item  -->
-        <div class="bg-white rounded-lg">
+        <div
+          class="bg-white rounded-lg shadow-md transform hover:scale-105 hover:shadow-xl transition duration-300"
+        >
           <div class="p-10 text-center">
             <h3 class="text-3xl font-semibold text-[#15803d] mb-2.5">500K+</h3>
             <p class="text-[#1f2937]">Trees Planted</p>

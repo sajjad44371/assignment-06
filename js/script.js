@@ -15,7 +15,7 @@ const displayTreeCategories = (categories) => {
   categories.forEach((element) => {
     categoriesContainer.innerHTML += `
         <div>
-            <button onclick="loadTreesByCategory('${element.id}', this)" id="btn-category" class="font-medium p-1.5 cursor-pointer hover:bg-[#166534] hover:text-white duration-200 w-full text-center xl:text-left">${element.category_name}</button>
+            <button onclick="loadTreesByCategory('${element.id}', this)" id="btn-category" class="font-medium p-2 cursor-pointer hover:bg-[#166534] hover:text-white duration-200 w-full rounded-lg text-center xl:text-left">${element.category_name}</button>
         </div>
     `;
   });
@@ -42,8 +42,12 @@ const displayTreesByCategory = (categoryPlants) => {
     treeContainer.innerHTML += `
             <div class="tree-card rounded-lg bg-white shadow-md transform hover:scale-105 hover:shadow-xl transition duration-300">
               <div class="tree-card-content p-4">
-                <img src="${cat.image}" alt="" class="rounded-lg" />
-                <button onclick="loadTreeDescription(${cat.id})" class="text-[14px] font-semibold my-3 cursor-pointer">${cat.name}</button>
+                <img src="https://picsum.photos/400/300?random=${Date.now()}" alt="" class="rounded-lg" />
+                <button onclick="loadTreeDescription(${
+                  cat.id
+                })" class="text-[14px] font-semibold my-3 cursor-pointer">${
+      cat.name
+    }</button>
                 <p class="text-[12px] text-gray-400 mb-2">
                  ${cat.description}
                 </p>
@@ -82,11 +86,19 @@ const showTreeDescription = (description) => {
   const detailsContainer = document.getElementById("details-container");
   detailsContainer.innerHTML = `
     <div>
-        <h3 class="text-xl md:text-2xl font-bold mb-2.5">${description.name}</h3>
-        <img src="${description.image}" alt="" class />
-        <h3 class="text-sm md:text-lg text-gray-600"><span class="font-bold text-black">Category:</span> ${description.category}</h3>
-        <h4 class="text-sm md:text-lg text-gray-600 my-1.5"><span class="font-bold text-black">Price:</span> ${description.price}</h4>
-        <p class="text-sm md:text-lg text-gray-600"><span class="font-bold text-black">Description:</span> ${description.description}</p>
+        <h3 class="text-xl md:text-2xl font-bold mb-2.5">${
+          description.name
+        }</h3>
+        <img src="https://picsum.photos/400/300?random=${Date.now()}" alt="" class />
+        <h3 class="text-sm md:text-lg text-gray-600"><span class="font-bold text-black">Category:</span> ${
+          description.category
+        }</h3>
+        <h4 class="text-sm md:text-lg text-gray-600 my-1.5"><span class="font-bold text-black">Price:</span> ${
+          description.price
+        }</h4>
+        <p class="text-sm md:text-lg text-gray-600"><span class="font-bold text-black">Description:</span> ${
+          description.description
+        }</p>
     </div>
   `;
   document.getElementById("my_modal").showModal();
@@ -98,16 +110,35 @@ const loadAllPlants = () => {
     .then((res) => res.json())
     .then((data) => displayAllPlants(data.plants))
     .catch((error) => console.log("Error: ", error));
+
+  const allTreeBtn = document.querySelector(".btn-all-tree");
+  window.addEventListener("DOMContentLoaded", () => {
+    allTreeBtn.classList.add("bg-[#166534]", "text-white");
+  });
+  allTreeBtn.addEventListener("click", function () {
+    document.querySelectorAll("#btn-category").forEach((btn) => {
+      btn.classList.remove("bg-[#166534]", "text-white");
+    });
+
+    this.classList.add("bg-[#166534]", "text-white");
+  });
 };
 
+// <img src="${plant.image}" alt="" class="rounded-lg" />
 const displayAllPlants = (allPlants) => {
   treeContainer.innerHTML = "";
   allPlants.forEach((plant) => {
+    console.log(plant);
     treeContainer.innerHTML += `
             <div class="tree-card rounded-lg bg-white shadow-md transform hover:scale-105 hover:shadow-xl transition duration-300">
               <div class="tree-card-content p-4">
-                <img src="${plant.image}" alt="" class="rounded-lg" />
-                <button onclick="loadTreeDescription(${plant.id})" class="text-[14px] font-semibold my-3 cursor-pointer">${plant.name}</button>
+                <img src="https://picsum.photos/400/300?random=${Date.now()}" alt="" class="rounded-lg" />
+                
+                <button onclick="loadTreeDescription(${
+                  plant.id
+                })" class="text-[14px] font-semibold my-3 cursor-pointer">${
+      plant.name
+    }</button>
                 <p class="text-[12px] text-gray-400 mb-2">
                  ${plant.description}
                 </p>
