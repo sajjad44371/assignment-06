@@ -48,7 +48,7 @@ const displayTreesByCategory = (categoryPlants) => {
                 })" class="text-[14px] font-semibold my-3 cursor-pointer">${
       cat.name
     }</button>
-                <p class="text-[12px] text-gray-400 mb-2">
+                <p class="text-[12px] text-gray-400 mb-2 h-[70px]">
                  ${cat.description}
                 </p>
                 <div class="flex justify-between items-center">
@@ -139,7 +139,7 @@ const displayAllPlants = (allPlants) => {
                 })" class="text-[14px] font-semibold my-3 cursor-pointer">${
       plant.name
     }</button>
-                <p class="text-[12px] text-gray-400 mb-2">
+                <p class="text-[12px] text-gray-400 mb-2 h-[70px]">
                  ${plant.description}
                 </p>
                 <div class="flex justify-between items-center">
