@@ -117,14 +117,11 @@
     <!-- header end  -->
 
     <!-- banner start  -->
-    <section class="banner bg-[#CFF0DC]">
-      <div
-        class="banner-content text-center flex flex-col md:flex-row justify-between items-center"
-      >
-        <div>
-          <img src="./assets/hero-leaf1.png" alt="" />
-        </div>
-        <div class="z-10 py-5">
+    <section
+      class="banner bg-[#CFF0DC] lg:bg-[url('./assets/hero-leaf1.png'),_url('./assets/hero-leaf2.png')] lg:[background-position:left_center,_right_center] lg:bg-no-repeat bg-contain"
+    >
+      <div class="banner-content text-center flex justify-center items-center">
+        <div class="py-[100px] lg:py-[10px] xl:py-[100px]">
           <h1 class="text-3xl md:text-5xl font-bold">
             Plant a Tree, Grow a Future
           </h1>
@@ -136,9 +133,6 @@
             class="btn rounded-3xl bg-[#facc15] text-[#15803d] transition-all duration-300 hover:bg-gradient-to-r hover:from-[#facc15] hover:to-[#15803d]"
             >Plant a Tree</a
           >
-        </div>
-        <div>
-          <img src="./assets/hero-leaf2.png" alt="" />
         </div>
       </div>
     </section>
@@ -196,7 +190,7 @@
               </h4>
               <div
                 id="cart-container"
-                class="cart-item-container mt-3 border-b border-gray-300"
+                class="cart-item-container mt-3 border-b border-gray-300 min-h-[400px]"
               >
                 <!-- single cart  -->
               </div>
