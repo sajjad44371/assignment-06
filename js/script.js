@@ -36,18 +36,15 @@ const loadTreesByCategory = (id, btn) => {
   btn.classList.add("bg-[#166534]", "text-white");
 };
 
+// https://picsum.photos/400/300?random=${Date.now()}
 const displayTreesByCategory = (categoryPlants) => {
   treeContainer.innerHTML = "";
   categoryPlants.forEach((cat) => {
     treeContainer.innerHTML += `
             <div class="tree-card rounded-lg bg-white shadow-md transform hover:scale-105 hover:shadow-xl transition duration-300">
               <div class="tree-card-content p-4">
-                <img src="https://picsum.photos/400/300?random=${Date.now()}" alt="" class="rounded-lg mx-auto" />
-                <button onclick="loadTreeDescription(${
-                  cat.id
-                })" class="text-lg font-semibold my-3 cursor-pointer border-b border-transparent hover:border-b hover:border-b-emerald-600">${
-      cat.name
-    }</button>
+                <img src="${cat.image}" alt="" class="rounded-lg mx-auto h-[350px] sm:h-[300px] w-full" />
+                <button onclick="loadTreeDescription(${cat.id})" class="text-lg font-semibold my-3 cursor-pointer border-b border-transparent hover:border-b hover:border-b-emerald-600">${cat.name}</button>
                 <p class="text-[12px] text-gray-400 mb-2 h-[70px]">
                  ${cat.description}
                 </p>
@@ -74,6 +71,7 @@ const displayTreesByCategory = (categoryPlants) => {
   manageSpinner(false);
 };
 
+// https://picsum.photos/400/300?random=${Date.now()}
 // load tree description
 const loadTreeDescription = (id) => {
   fetch(`https://openapi.programming-hero.com/api/plant/${id}`)
@@ -86,19 +84,11 @@ const showTreeDescription = (description) => {
   const detailsContainer = document.getElementById("details-container");
   detailsContainer.innerHTML = `
     <div>
-        <h3 class="text-xl md:text-2xl font-bold mb-2.5">${
-          description.name
-        }</h3>
-        <img src="https://picsum.photos/400/300?random=${Date.now()}" alt="" class="mx-auto rounded-lg mb-2.5" />
-        <h3 class="text-sm md:text-lg text-gray-600"><span class="font-bold text-black">Category:</span> ${
-          description.category
-        }</h3>
-        <h4 class="text-sm md:text-lg text-gray-600 my-1.5"><span class="font-bold text-black">Price:</span> ${
-          description.price
-        }</h4>
-        <p class="text-sm md:text-lg text-gray-600"><span class="font-bold text-black">Description:</span> ${
-          description.description
-        }</p>
+        <h3 class="text-xl md:text-2xl font-bold mb-2.5">${description.name}</h3>
+        <img src="${description.image}" alt="" class="mx-auto rounded-lg mb-2.5 h-[350px] w-full" />
+        <h3 class="text-sm md:text-lg text-gray-600"><span class="font-bold text-black">Category:</span> ${description.category}</h3>
+        <h4 class="text-sm md:text-lg text-gray-600 my-1.5"><span class="font-bold text-black">Price:</span> ${description.price}</h4>
+        <p class="text-sm md:text-lg text-gray-600"><span class="font-bold text-black">Description:</span> ${description.description}</p>
     </div>
   `;
   document.getElementById("my_modal").showModal();
@@ -132,13 +122,9 @@ const displayAllPlants = (allPlants) => {
     treeContainer.innerHTML += `
             <div class="tree-card rounded-lg bg-white shadow-md transform hover:scale-105 hover:shadow-xl transition duration-300">
               <div class="tree-card-content p-4">
-                <img src="https://picsum.photos/400/300?random=${Date.now()}" alt="" class="rounded-lg mx-auto" />
+                <img src="${plant.image}" alt="" class="rounded-lg mx-auto h-[350px] sm:h-[300px] w-full" />
                 
-                <button onclick="loadTreeDescription(${
-                  plant.id
-                })" class="text-lg font-semibold my-3 cursor-pointer border-b border-transparent hover:border-b hover:border-b-emerald-600">${
-      plant.name
-    }</button>
+                <button onclick="loadTreeDescription(${plant.id})" class="text-lg font-semibold my-3 cursor-pointer border-b border-transparent hover:border-b hover:border-b-emerald-600">${plant.name}</button>
                 <p class="text-[12px] text-gray-400 mb-2 h-[70px]">
                  ${plant.description}
                 </p>

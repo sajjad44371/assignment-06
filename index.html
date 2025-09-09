@@ -107,6 +107,17 @@
           </ul>
         </div>
         <div class="navbar-end">
+          <!-- small screen cart icon  -->
+          <div class="">
+            <div tabindex="0" role="button" class="btn btn-ghost xl:hidden">
+              <ul>
+                <li>
+                  <a href="#cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
           <a
             class="btn rounded-3xl bg-[#facc15] text-[#15803d] transition-all duration-300 hover:bg-gradient-to-r hover:from-[#facc15] hover:to-[#15803d] shadow-none"
             >Plant a Tree</a
@@ -183,7 +194,10 @@
           >
             <!-- single card  -->
           </div>
-          <div class="cart flex-1 xl:flex-2/12 rounded-lg bg-white w-full">
+          <div
+            id="cart"
+            class="cart flex-1 xl:flex-2/12 rounded-lg bg-white w-full"
+          >
             <div class="cart-content p-4">
               <h4 class="text-lg font-semibold">
                 Your Cart <i class="fa-solid fa-cart-shopping"></i>
@@ -326,6 +340,8 @@
               </option>
               <option value="01">01</option>
               <option value="02">02</option>
+              <option value="03">03</option>
+              <option value="04">04</option>
               <option value="other">Other (specify)</option>
             </select>
             <a
